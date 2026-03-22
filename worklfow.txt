@@ -1,0 +1,140 @@
+1. Install Docker Desktop
+2. Sign in to DockerHub and Docker Desktop
+3. Docker Desktop:
+   > Check docker install: cli -> "docker"
+   > pull the hello-world image and run it 
+
+4. Build Docker image : docker build -t mlops-docker-demo .
+5. 
+
+
+
+
+
+
+
+
+DOCKER WORKFLOW (FIRST TIME SETUP)
+
+-----------------------------------
+STEP 1: Install Docker
+-----------------------------------
+- Download Docker Desktop
+- Install and restart system
+- Verify installation:
+
+docker --version
+
+
+-----------------------------------
+STEP 2: Create Dockerfile
+-----------------------------------
+Example Dockerfile:
+
+FROM python:3.10-slim
+
+WORKDIR /app
+
+COPY . /app
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD ["python", "src/file1.py"]
+
+
+-----------------------------------
+STEP 3: Create .dockerignore
+-----------------------------------
+__pycache__/
+*.pyc
+mlruns/
+venv/
+.git
+
+
+-----------------------------------
+STEP 4: Build Docker Image
+-----------------------------------
+Run in project directory:
+
+docker build -t mlops-project .
+
+
+-----------------------------------
+STEP 5: Check Image Created
+-----------------------------------
+
+docker images
+
+
+-----------------------------------
+STEP 6: Run Docker Container
+-----------------------------------
+
+docker run -it mlops-project
+
+
+-----------------------------------
+STEP 7: Run in Background (Optional)
+-----------------------------------
+
+docker run -d mlops-project
+
+
+-----------------------------------
+STEP 8: Check Running Containers
+-----------------------------------
+
+docker ps
+
+
+-----------------------------------
+STEP 9: Stop Container
+-----------------------------------
+
+docker stop <container_id>
+
+
+-----------------------------------
+STEP 10: Remove Container
+-----------------------------------
+
+docker rm <container_id>
+
+
+-----------------------------------
+STEP 11: Remove Image (Optional)
+-----------------------------------
+
+docker rmi mlops-project
+
+
+-----------------------------------
+STEP 12: Run with Port Mapping (For MLflow UI / APIs)
+-----------------------------------
+
+docker run -p 5000:5000 mlops-project
+
+
+-----------------------------------
+STEP 13: Rebuild After Code Changes
+-----------------------------------
+
+docker build -t mlops-project .
+docker run -it mlops-project
+
+
+-----------------------------------
+FINAL WORKFLOW
+-----------------------------------
+
+Code → Dockerfile → Build Image → Run Container → Execute ML Pipeline
+
+
+-----------------------------------
+NOTES
+-----------------------------------
+- Always run docker commands inside project folder
+- Use .dockerignore to reduce image size
+- Use -p flag for web apps (MLflow, FastAPI)
+- Rebuild image after any dependency/code change
