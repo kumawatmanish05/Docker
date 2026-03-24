@@ -5,7 +5,9 @@
    > pull the hello-world image and run it 
 
 4. Build Docker image : docker build -t mlops-docker-demo .
-5. 
+5. Run the container : docker run -p 5000:5000 flask-docker-demo
+6. Tag your image : docker tag flask-docker-demo kumawatmanish/mlops-docker-demo:latest1
+
 
 
 
