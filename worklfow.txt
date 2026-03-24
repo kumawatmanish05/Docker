@@ -10,7 +10,7 @@
 7. Assure that you're logged in : docker login
 8. Push image to dockerhub : docker push kumawatmanish/mlops-docker-demo:latest1
 9. Pull image from dockerhub : docker pull kumawatmanish/mlops-docker-demo:latest1
-10.
+10. Run the pulled image : docker run -p 5000:5000 kumawatmanish/mlops-docker-demo:latest1
 
 
 
