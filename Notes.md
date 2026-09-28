@@ -77,13 +77,13 @@ interact with Docker. When you type commands like docker run or docker build,
 the CLI sends instructions to the Docker Daemon via the REST API.
 ```
 
-```
-5. Docker Image: A Docker image is a lightweight, standalone, and executable
+
+# '5. Docker Image:'
+
+'''  A Docker image is a lightweight, standalone, and executable
 package that includes everything needed to run a piece of software. It's read-
 only and is used to create containers.
-```
 
-```
 Components of a Docker Image:
 Base Image: This is the starting point, usually a minimal OS or runtime.
 Layers: Each change (like installing software, adding files) in the image adds a
